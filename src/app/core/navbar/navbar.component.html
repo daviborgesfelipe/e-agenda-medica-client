@@ -16,18 +16,18 @@
       class="col-3 col-sm-2 col-lg-3"
       (click)="estaColapsada = !estaColapsada"
       mat-icon-button class="example-icon" 
-      aria-label="Example icon-button with menu icon">
+      aria-label="Menu">
     <mat-icon >menu</mat-icon>
     </button>
       
   </mat-toolbar-row>
 
   <mat-toolbar-row
-    class="collapse navbar-collapse" 
+    class="collapse navbar-collapse mx-auto" 
     [ngbCollapse]="estaColapsada == true"
   >
 
-    <div class="ps-5 ms-5">
+    <div class="d-flex justify-content-center w-100">
           <a color="" mat-button routerLink="/dashboard">
             Dashboard
           </a>
