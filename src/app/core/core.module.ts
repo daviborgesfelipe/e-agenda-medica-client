@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
+import { LoadingModule } from './loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     CommonModule,
     NgbModule,
     RouterModule,
+    LoadingModule,
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
@@ -29,7 +31,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     NavbarComponent,
     MatCardModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    LoadingModule
   ]
 })
 export class CoreModule { }
