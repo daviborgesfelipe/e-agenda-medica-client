@@ -1,48 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand fw-semibold" routerLink="/"
-      >e-Agenda<i class="bi bi-clipboard2-check-fill text-primary ms-2"></i
-    ></a>
-    <button
-      (click)="estaColapsada = !estaColapsada"
-      class="navbar-toggler"
-      type="button"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div 
+  <mat-toolbar color="primary">
+
+    <mat-toolbar-row class="gap-5">
+
+      <a 
+        class="col-3"
+        routerLinkActive="fw-semibold"
+        routerLink="/dashboard"
+        mat-button>e-Agenda Medica
+      </a>
+
+      <div class="col-6"></div>
+
+      <button 
+        class="col-3 pe-5"
+        (click)="estaColapsada = !estaColapsada"
+        mat-icon-button class="example-icon" 
+        aria-label="Example icon-button with menu icon">
+        <mat-icon >menu</mat-icon>
+      </button>
+      
+    </mat-toolbar-row>
+
+    <mat-toolbar-row
       class="collapse navbar-collapse" 
       [ngbCollapse]="estaColapsada == true"
-      >
-      <div
-        class="links w-100 text-center">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a
-              class="nav-link text-primary"
-              routerLinkActive="fw-semibold"
-              routerLink="/medicos/listar"
-              >Medicos</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link text-primary"
-              routerLinkActive="fw-semibold"
-              routerLink="/atividades/listar"
-              >Atividades</a
-            >
-          </li>
+    >
 
-          <li class="nav-item ms-auto">
-            <button class="btn btn-primary px-5">
-              <i class="bi bi-door-open-fill"></i>
-              Sair
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
+      <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+        <a mat-tab-link routerLink="/dashboard" routerLinkActive>
+          Dashboard
+        </a>
+        <a mat-tab-link routerLink="/medicos" routerLinkActive >
+          Médicos
+        </a>
+        <a mat-tab-link routerLink="/atividades" routerLinkActive>
+          Atividades
+        </a>
+      </nav>
+      <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+      
+
+
+    </mat-toolbar-row>
+
+  </mat-toolbar>

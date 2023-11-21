@@ -5,8 +5,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-
-
+import { RouterModule } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,13 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     NgbModule,
+    RouterModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatTabsModule
   ],
   exports: [
     NavbarComponent,

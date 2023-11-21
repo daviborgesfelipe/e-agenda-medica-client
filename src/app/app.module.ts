@@ -9,6 +9,9 @@ import { DashboardModule } from './views/dashboard/dashboard.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MedicosModule } from './views/medicos/medicos.module';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,19 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatButtonModule,
     NgbModule,
-
+    ToastrModule.forRoot({
+      timeOut: 5100,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true
+    }),
+    
     CoreModule,
     DashboardModule,
+    MedicosModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

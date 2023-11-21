@@ -1,0 +1,10 @@
+// Defina a variável de cor
+$sua-cor: #3f51b5;
+
+// Use a variável no estilo do seu span
+span {
+  color: $sua-cor;
+}
+mat-card-title {
+  color: $sua-cor;
+}
