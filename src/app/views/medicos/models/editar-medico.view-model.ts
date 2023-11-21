@@ -1,6 +1,6 @@
-export type ListarMedicoViewModel = {
-  id: string;
+export type EditarMedicoViewModel = {
   nome: string;
   especialidade: string;
   crm: string;
-};
+  
+}

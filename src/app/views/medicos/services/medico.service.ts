@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ListarMedicoViewModel } from "../models/listar-medico.vew-model";
 import { Observable, catchError, map, throwError } from "rxjs";
 import { InserirMedicoViewModel } from "../models/inserir-medico.view-model";
+import { EditarMedicoViewModel } from "../models/editar-medico.view-model";
 
 @Injectable()
 export class MedicoService {
@@ -24,6 +25,18 @@ export class MedicoService {
       );
   }
 
+  public editar(id: string, medico: EditarMedicoViewModel) {
+    return this.http
+      .put<any>(this.endpoint + id, medico)
+      .pipe(
+        map((res) => res.dados),
+        catchError((err: HttpErrorResponse) => {
+          console.log(err)
+          return this.processarErroHttp(err)
+        })
+      );
+  }
+
   public selecionarTodos(): Observable<ListarMedicoViewModel[]> {
     return this.http
       .get<any>(this.endpoint)
@@ -33,7 +46,7 @@ export class MedicoService {
       );
   }
 
-  public selecionarPorId(id: string): Observable<InserirMedicoViewModel> {
+  public selecionarPorId(id: string): Observable<InserirMedicoViewModel | EditarMedicoViewModel> {
     return this.http
       .get<any>(this.endpoint + id)
       .pipe(

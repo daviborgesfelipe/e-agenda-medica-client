@@ -9,5 +9,10 @@ import { ListarMedicoViewModel } from '../models/listar-medico.vew-model';
 export class CardMedicoComponent {
   @Input({ required: true }) medico!: ListarMedicoViewModel;
 
+  /**
+   *
+   */
+  constructor() {
+  }
   tituloCard = `Medico`
 }
