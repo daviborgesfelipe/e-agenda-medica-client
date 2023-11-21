@@ -1,12 +1,20 @@
 import { NgModule, inject } from '@angular/core';
-import { ResolveFn, RouterModule, Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, ResolveFn, RouterModule, Routes } from '@angular/router';
 import { ListarAtividadesComponent } from './listar-atividades/listar-atividades.component';
 import { ListarAtividadeViewModel } from './models/listar-atividades.view-model';
 import { AtividadeService } from './services/atividade.service';
 import { InserirAtividadesComponent } from './inserir-atividades/inserir-atividades.component';
+import { EditarAtividadesComponent } from './editar-atividades/editar-atividades.component';
+import { FormsAtividadeViewModel } from './models/forms-atividade.view-model';
 
-const listarMedicosResolver: ResolveFn<ListarAtividadeViewModel[]> = () => {
+const listarAtividadeResolver: ResolveFn<ListarAtividadeViewModel[]> = () => {
   return inject(AtividadeService).selecionarTodos();
+};
+
+const editarrMedicosResolver: ResolveFn<FormsAtividadeViewModel> = (
+  route: ActivatedRouteSnapshot
+) => {
+  return inject(AtividadeService).selecionarPorId(route.paramMap.get('id')!);
 };
 
 const routes: Routes = [
@@ -18,12 +26,16 @@ const routes: Routes = [
   {
     path: 'listar',
     component: ListarAtividadesComponent,
-    resolve: { atividades: listarMedicosResolver },
+    resolve: { atividades: listarAtividadeResolver },
   },
   {
     path: 'inserir',
-    component: InserirAtividadesComponent,
-    resolve: { atividades: listarMedicosResolver },
+    component: InserirAtividadesComponent
+  },
+  {
+    path: 'editar/:id',
+    component: EditarAtividadesComponent,
+    resolve: { atividade: editarrMedicosResolver },
   }
 ];
 

@@ -14,12 +14,14 @@ import { InserirAtividadesComponent } from './inserir-atividades/inserir-ativida
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EditarAtividadesComponent } from './editar-atividades/editar-atividades.component';
 
 @NgModule({
   declarations: [
     CardAtividadeComponent,
     ListarAtividadesComponent,
-    InserirAtividadesComponent
+    InserirAtividadesComponent,
+    EditarAtividadesComponent
   ],
   imports: [
     CommonModule,

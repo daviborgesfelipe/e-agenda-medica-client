@@ -27,6 +27,18 @@ export class AtividadeService {
       );
   }
 
+  public editar(id: string, medico: FormsAtividadeViewModel) {
+    return this.http
+      .put<any>(this.endpoint + id, medico)
+      .pipe(
+        map((res) => res.dados),
+        catchError((err: HttpErrorResponse) => {
+          console.log(err)
+          return this.processarErroHttp(err)
+        })
+      );
+  }
+
   public selecionarTodos(): Observable<ListarAtividadeViewModel[]> {
     return this.http
       .get<any>(this.endpoint)
