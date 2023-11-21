@@ -3,6 +3,7 @@ import { ResolveFn, RouterModule, Routes } from '@angular/router';
 import { ListarAtividadesComponent } from './listar-atividades/listar-atividades.component';
 import { ListarAtividadeViewModel } from './models/listar-atividades.view-model';
 import { AtividadeService } from './services/atividade.service';
+import { InserirAtividadesComponent } from './inserir-atividades/inserir-atividades.component';
 
 const listarMedicosResolver: ResolveFn<ListarAtividadeViewModel[]> = () => {
   return inject(AtividadeService).selecionarTodos();
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: 'listar',
     component: ListarAtividadesComponent,
+    resolve: { atividades: listarMedicosResolver },
+  },
+  {
+    path: 'inserir',
+    component: InserirAtividadesComponent,
     resolve: { atividades: listarMedicosResolver },
   }
 ];

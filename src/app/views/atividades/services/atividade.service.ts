@@ -16,6 +16,17 @@ export class AtividadeService {
     private http: HttpClient,
   ) {}
 
+  public inserir(
+    atividade: FormsAtividadeViewModel
+  ): Observable<FormsAtividadeViewModel> {
+    return this.http
+      .post<any>(this.endpoint, atividade)
+      .pipe(
+        map((res) => res.dados),
+        catchError((err: HttpErrorResponse) => this.processarErroHttp(err))
+      );
+  }
+
   public selecionarTodos(): Observable<ListarAtividadeViewModel[]> {
     return this.http
       .get<any>(this.endpoint)

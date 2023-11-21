@@ -10,21 +10,28 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AtividadeService } from './services/atividade.service';
-
+import { InserirAtividadesComponent } from './inserir-atividades/inserir-atividades.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
     CardAtividadeComponent,
-    ListarAtividadesComponent
+    ListarAtividadesComponent,
+    InserirAtividadesComponent
   ],
   imports: [
     CommonModule,
+    NgSelectModule,
     AtividadesRoutingModule,  
     ReactiveFormsModule,  
     MatCardModule,  
     MatButtonModule, 
     MatDividerModule,
-    MatProgressBarModule 
+    MatProgressBarModule ,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [
     AtividadeService
