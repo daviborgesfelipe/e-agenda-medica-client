@@ -13,6 +13,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MedicoService } from './services/medico.service';
 import { EditarMedicosComponent } from './editar-medicos/editar-medicos.component';
 import { ExcluirMedicosComponent } from './excluir-medicos/excluir-medicos.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ExcluirMedicosComponent } from './excluir-medicos/excluir-medicos.compo
     MatCardModule,  
     MatButtonModule, 
     MatDividerModule,
-    MatProgressBarModule 
+    MatProgressBarModule ,
+    MatFormFieldModule
   ],
   providers: [
     MedicoService
