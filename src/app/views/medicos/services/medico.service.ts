@@ -4,9 +4,12 @@ import { ListarMedicoViewModel } from "../models/listar-medico.vew-model";
 import { Observable, catchError, map, throwError } from "rxjs";
 import { InserirMedicoViewModel } from "../models/inserir-medico.view-model";
 import { EditarMedicoViewModel } from "../models/editar-medico.view-model";
+import { VisualizarMedicoViewModel } from "../models/visualizar-medico.view-model";
 
 @Injectable()
 export class MedicoService {
+
+
   private endpoint: string =
     'https://localhost:7186/api/medicos/';
 
@@ -37,6 +40,15 @@ export class MedicoService {
       );
   }
 
+  excluir(id: string) {
+    return this.http.delete<any>(
+      this.endpoint + id)
+      .pipe(
+        map((res) => res.dados),
+        catchError((err: HttpErrorResponse) => this.processarErroHttp(err))
+      );
+  }
+
   public selecionarTodos(): Observable<ListarMedicoViewModel[]> {
     return this.http
       .get<any>(this.endpoint)
@@ -46,9 +58,20 @@ export class MedicoService {
       );
   }
 
-  public selecionarPorId(id: string): Observable<InserirMedicoViewModel | EditarMedicoViewModel> {
+  public selecionarPorId(id: string): Observable<InserirMedicoViewModel> {
     return this.http
       .get<any>(this.endpoint + id)
+      .pipe(
+        map((res) => res.dados),
+        catchError((err: HttpErrorResponse) => this.processarErroHttp(err))
+      );
+  }
+
+  selecionarMedicoCompletoPorId(
+    id: string
+  ): Observable<VisualizarMedicoViewModel> {
+    return this.http
+      .get<any>(this.endpoint + 'visualizacao-completa/' + id)
       .pipe(
         map((res) => res.dados),
         catchError((err: HttpErrorResponse) => this.processarErroHttp(err))

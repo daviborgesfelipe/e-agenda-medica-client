@@ -12,13 +12,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MedicoService } from './services/medico.service';
 import { EditarMedicosComponent } from './editar-medicos/editar-medicos.component';
+import { ExcluirMedicosComponent } from './excluir-medicos/excluir-medicos.component';
 
 @NgModule({
   declarations: [
     InserirMedicosComponent,
     ListarMedicosComponent,
     CardMedicoComponent,
-    EditarMedicosComponent
+    EditarMedicosComponent,
+    ExcluirMedicosComponent
   ],
   imports: [
     CommonModule,

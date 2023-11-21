@@ -6,6 +6,9 @@ import { ListarMedicoViewModel } from './models/listar-medico.vew-model';
 import { MedicoService } from './services/medico.service';
 import { EditarMedicosComponent } from './editar-medicos/editar-medicos.component';
 import { EditarMedicoViewModel } from './models/editar-medico.view-model';
+import { VisualizarMedicoViewModel } from './models/visualizar-medico.view-model';
+import { ExcluirMedicosComponent } from './excluir-medicos/excluir-medicos.component';
+import { InserirMedicoViewModel } from './models/inserir-medico.view-model';
 
 const listarMedicosResolver: ResolveFn<ListarMedicoViewModel[]> = () => {
   return inject(MedicoService).selecionarTodos();
@@ -15,6 +18,14 @@ const editarrMedicosResolver: ResolveFn<EditarMedicoViewModel> = (
   route: ActivatedRouteSnapshot
 ) => {
   return inject(MedicoService).selecionarPorId(route.paramMap.get('id')!);
+};
+
+const visualizarMedicoResolver: ResolveFn<InserirMedicoViewModel> = (
+  route: ActivatedRouteSnapshot
+) => {
+  return inject(MedicoService).selecionarPorId(
+    route.paramMap.get('id')!
+  );
 };
 
 const routes: Routes = [
@@ -36,6 +47,11 @@ const routes: Routes = [
     path: 'editar/:id',
     component: EditarMedicosComponent,
     resolve: { medico: editarrMedicosResolver },
+  },
+  {
+    path: 'excluir/:id',
+    component: ExcluirMedicosComponent,
+    resolve: { medico: visualizarMedicoResolver },
   },
 ];
 
