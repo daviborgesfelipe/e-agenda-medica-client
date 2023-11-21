@@ -6,6 +6,7 @@ import { AtividadeService } from './services/atividade.service';
 import { InserirAtividadesComponent } from './inserir-atividades/inserir-atividades.component';
 import { EditarAtividadesComponent } from './editar-atividades/editar-atividades.component';
 import { FormsAtividadeViewModel } from './models/forms-atividade.view-model';
+import { ExcluirAtividadesComponent } from './excluir-atividades/excluir-atividades.component';
 
 const listarAtividadeResolver: ResolveFn<ListarAtividadeViewModel[]> = () => {
   return inject(AtividadeService).selecionarTodos();
@@ -15,6 +16,14 @@ const editarrMedicosResolver: ResolveFn<FormsAtividadeViewModel> = (
   route: ActivatedRouteSnapshot
 ) => {
   return inject(AtividadeService).selecionarPorId(route.paramMap.get('id')!);
+};
+
+const visualizarMedicoResolver: ResolveFn<FormsAtividadeViewModel> = (
+  route: ActivatedRouteSnapshot
+) => {
+  return inject(AtividadeService).selecionarPorId(
+    route.paramMap.get('id')!
+  );
 };
 
 const routes: Routes = [
@@ -36,6 +45,11 @@ const routes: Routes = [
     path: 'editar/:id',
     component: EditarAtividadesComponent,
     resolve: { atividade: editarrMedicosResolver },
+  },
+  {
+    path: 'excluir/:id',
+    component: ExcluirAtividadesComponent,
+    resolve: { atividade: visualizarMedicoResolver },
   }
 ];
 

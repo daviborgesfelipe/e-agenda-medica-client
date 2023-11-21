@@ -39,6 +39,15 @@ export class AtividadeService {
       );
   }
 
+  excluir(id: string) {
+    return this.http.delete<any>(
+      this.endpoint + id)
+      .pipe(
+        map((res) => res.dados),
+        catchError((err: HttpErrorResponse) => this.processarErroHttp(err))
+      );
+  }
+
   public selecionarTodos(): Observable<ListarAtividadeViewModel[]> {
     return this.http
       .get<any>(this.endpoint)

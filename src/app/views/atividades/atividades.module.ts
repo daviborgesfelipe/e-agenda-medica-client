@@ -15,13 +15,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { EditarAtividadesComponent } from './editar-atividades/editar-atividades.component';
+import { ExcluirAtividadesComponent } from './excluir-atividades/excluir-atividades.component';
 
 @NgModule({
   declarations: [
     CardAtividadeComponent,
     ListarAtividadesComponent,
     InserirAtividadesComponent,
-    EditarAtividadesComponent
+    EditarAtividadesComponent,
+    ExcluirAtividadesComponent
   ],
   imports: [
     CommonModule,
