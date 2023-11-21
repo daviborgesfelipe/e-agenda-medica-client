@@ -3,7 +3,7 @@
     <div class="container">
 
       <div class="row">
-        <mat-card-title class="p-0">{{ medico.nome }}</mat-card-title><div></div>
+        <mat-card-title class="p-0">Dr(a): {{ medico.nome }}</mat-card-title><div></div>
       </div>
 
       <div class="row pt-2">
@@ -16,7 +16,7 @@
   </mat-card-header>
   <mat-card-actions align="end">
     <button 
-      color="warn"
+      color="accent"
       mat-button
       routerLink="/medicos/excluir/{{medico.id}}"
       >Excluir
