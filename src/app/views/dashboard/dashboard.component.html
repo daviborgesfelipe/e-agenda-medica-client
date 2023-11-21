@@ -6,8 +6,8 @@
         <div class="row align-items-center gy-3 p-5"> 
           <div class="col-12 col-md-7">
 
-            <mat-card-header class="fs-5">
-              <mat-card-title>Painel do Usuário</mat-card-title>
+            <mat-card-header>
+              <mat-card-title class="fw-bold fs-3">Painel do Usuário</mat-card-title>
               <mat-card-subtitle class="fs-4">Seja Bem-Vindo(a)</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content class="fs-5">
@@ -17,18 +17,21 @@
               <p color="primary" class="fw-semibold"><span>O que você deseja gerenciar?</span></p>
             </mat-card-content>
 
-            <mat-card-actions class="d-grid d-md-flex gap-2">
-              <button 
+            <mat-card-actions class="d-grid d-md-flex gap-2 pt-5">
+              <a 
+              mat-raised-button
               routerLinkActive="fw-semibold"
               routerLink="/medicos/listar"
-              mat-button>MÉDICOS
-              </button>
+              >MÉDICOS
+              </a>
           
-              <button 
+              <a 
+              mat-raised-button
+              color="primary"
               routerLinkActive="fw-semibold"
               routerLink="/atividades/listar"
-               mat-button>ATIVIDADES
-              </button> 
+              >ATIVIDADES
+              </a> 
             </mat-card-actions>
           </div>
           <div class="col-12 col-md-5">
