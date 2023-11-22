@@ -68,21 +68,12 @@ export class InserirAtividadesComponent implements OnInit{
         return;
       }
       
-      // Convertendo a data para o formato desejado (yyyy/MM/dd)
-       const dataFormatada = formatDate(
-    this.formulario.value.data,
-    'yyyy/MM/dd',
-    'en-US' // Você pode ajustar isso para o seu locale
-      );
+      
+      const dataFormatada = formatDate( this.formulario.value.data, 'yyyy/MM/dd', 'en-US' );
 
-      // Criando o objeto a ser enviado
-      this.atividadeViewModel = {
-       ...this.formulario.value,
-       data: dataFormatada,
-      };
+      
+      this.atividadeViewModel = { ...this.formulario.value,  data: dataFormatada, };
 
-      console.log(this.atividadeViewModel)
-  
       this.atividadeService.inserir(this.atividadeViewModel).subscribe(
         {
           next: (medico: FormsAtividadeViewModel) => this.processarSucesso(medico),

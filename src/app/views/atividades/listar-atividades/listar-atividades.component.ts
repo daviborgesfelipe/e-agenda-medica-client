@@ -3,7 +3,6 @@ import { ListarAtividadeViewModel } from '../models/listar-atividades.view-model
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
-import { ListarMedicoViewModel } from '../../medicos/models/listar-medico.vew-model';
 
 @Component({
   selector: 'app-listar-atividades',
@@ -20,13 +19,13 @@ export class ListarAtividadesComponent implements OnInit{
   }
   ngOnInit(): void {
     this.route.data.pipe(map((dados) => dados['atividades'])).subscribe({
-      next: (_atividades) => this.obterMedicos(_atividades),
+      next: (_atividades) => this.obterAtividades(_atividades),
       error: (erro) => this.processarFalha(erro),
     });
   }
-
-  obterMedicos(medicos: ListarAtividadeViewModel[]) {
-    this.atividades = medicos;
+  
+  obterAtividades(atividades: ListarAtividadeViewModel[]) {
+    this.atividades = atividades;
   }
 
   processarFalha(erro: Error) {
