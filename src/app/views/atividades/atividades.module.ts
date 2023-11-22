@@ -16,14 +16,22 @@ import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { EditarAtividadesComponent } from './editar-atividades/editar-atividades.component';
 import { ExcluirAtividadesComponent } from './excluir-atividades/excluir-atividades.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import { ListarMedComMaisAtvdPeriodoComponent } from './listar-med-com-mais-atvd-periodo/listar-med-com-mais-atvd-periodo.component';
+import {MatTableModule} from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [
     CardAtividadeComponent,
-    ListarAtividadesComponent,
     InserirAtividadesComponent,
     EditarAtividadesComponent,
-    ExcluirAtividadesComponent
+    ExcluirAtividadesComponent,
+    ListarAtividadesComponent,
+    ListarMedComMaisAtvdPeriodoComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +43,13 @@ import { ExcluirAtividadesComponent } from './excluir-atividades/excluir-ativida
     MatDividerModule,
     MatProgressBarModule ,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [
     AtividadeService

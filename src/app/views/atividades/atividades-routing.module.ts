@@ -7,6 +7,7 @@ import { InserirAtividadesComponent } from './inserir-atividades/inserir-ativida
 import { EditarAtividadesComponent } from './editar-atividades/editar-atividades.component';
 import { FormsAtividadeViewModel } from './models/forms-atividade.view-model';
 import { ExcluirAtividadesComponent } from './excluir-atividades/excluir-atividades.component';
+import { ListarMedComMaisAtvdPeriodoComponent } from './listar-med-com-mais-atvd-periodo/listar-med-com-mais-atvd-periodo.component';
 
 const listarAtividadeResolver: ResolveFn<ListarAtividadeViewModel[]> = () => {
   return inject(AtividadeService).selecionarTodos();
@@ -50,6 +51,10 @@ const routes: Routes = [
     path: 'excluir/:id',
     component: ExcluirAtividadesComponent,
     resolve: { atividade: visualizarMedicoResolver },
+  },
+  {
+    path: 'medicos-mais-horas-trabalhadas',
+    component: ListarMedComMaisAtvdPeriodoComponent
   }
 ];
 

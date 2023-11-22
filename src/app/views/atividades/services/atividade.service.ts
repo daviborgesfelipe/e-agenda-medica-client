@@ -4,6 +4,7 @@ import { Observable, catchError, map, throwError } from "rxjs";
 import { ListarAtividadeViewModel } from "../models/listar-atividades.view-model";
 import { FormsAtividadeViewModel } from "../models/forms-atividade.view-model";
 import { VisualizarAtividadeViewModel } from "../models/visualizar-atividades.view-model";
+import { MedicoComHoraViewModel } from "../models/listar-medicos-com-hora.view-model";
 
 @Injectable()
 export class AtividadeService {
@@ -62,6 +63,17 @@ export class AtividadeService {
       .get<any>(this.endpoint + id)
       .pipe(
         map((res) => res.dados),
+        catchError((err: HttpErrorResponse) => this.processarErroHttp(err))
+      );
+  }
+
+  public selecionarMedMaisPorPeriodo(inicio: any, final:any): Observable<MedicoComHoraViewModel[]> {
+    return this.http
+      .get<any>(this.endpoint + 'medicos-mais-horas-trabalhadas/' + inicio + '/' + final)
+      .pipe(
+        map((res) => {
+          return res.dados
+        }),
         catchError((err: HttpErrorResponse) => this.processarErroHttp(err))
       );
   }
