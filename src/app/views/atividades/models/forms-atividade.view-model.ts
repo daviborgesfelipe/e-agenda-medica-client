@@ -1,10 +1,11 @@
+import { ListarMedicoViewModel } from "../../medicos/models/listar-medico.vew-model";
 import { TipoAtividadeEnum } from "./tipoAtividade.enum";
 
 export type FormsAtividadeViewModel = {
   paciente: string;
   data: Date;
-  horatioTermino: string;
-  horatioInicio: string;
+  horarioTermino: string;
+  horarioInicio: string;
   tipoAtividade: TipoAtividadeEnum;
-  listaMedicos: string[];
+  listaMedicos: ListarMedicoViewModel[];
 }
