@@ -1,6 +1,8 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, map, throwError } from "rxjs";
+import { formatDate } from "@angular/common";
+
 import { ListarAtividadeViewModel } from "../models/listar-atividades.view-model";
 import { FormsAtividadeViewModel } from "../models/forms-atividade.view-model";
 import { VisualizarAtividadeViewModel } from "../models/visualizar-atividades.view-model";
@@ -17,9 +19,7 @@ export class AtividadeService {
     private http: HttpClient,
   ) {}
 
-  public inserir(
-    atividade: FormsAtividadeViewModel
-  ): Observable<FormsAtividadeViewModel> {
+  public inserir( atividade: FormsAtividadeViewModel ): Observable<FormsAtividadeViewModel> {
     return this.http
       .post<any>(this.endpoint, atividade)
       .pipe(
@@ -32,11 +32,8 @@ export class AtividadeService {
     return this.http
       .put<any>(this.endpoint + id, medico)
       .pipe(
-        map((res) => res.dados),
-        catchError((err: HttpErrorResponse) => {
-          console.log(err)
-          return this.processarErroHttp(err)
-        })
+        map( (res) => res.dados ),
+        catchError((err: HttpErrorResponse) => this.processarErroHttp(err))
       );
   }
 
@@ -78,7 +75,7 @@ export class AtividadeService {
       );
   }
 
-  selecionarMedicoCompletoPorId(
+  selecionarAtividadeCompletoPorId(
     id: string
   ): Observable<VisualizarAtividadeViewModel> {
     return this.http
@@ -103,4 +100,13 @@ export class AtividadeService {
 
     return throwError(() => new Error(mensagemErro));
   }
+
+  formatStringToData(data: any): string {
+    const [dia, mes, ano] = data.split("/");
+    return `${ano}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
+  }
+
+  formatDateToString(date: Date): string {
+    return formatDate(date, 'yyyy/MM/dd', 'en-US');
+  } 
 }
