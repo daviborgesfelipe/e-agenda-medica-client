@@ -1,27 +1,29 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { AtividadesRoutingModule } from './atividades-routing.module';
-import { CardAtividadeComponent } from './card-atividade/card-atividade.component';
-import { ListarAtividadesComponent } from './listar-atividades/listar-atividades.component';
+import { CommonModule, DatePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AtividadesRoutingModule } from './atividades-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { AtividadeService } from './services/atividade.service';
+import { MedicoService } from '../medicos/services/medico.service';
+import { CardAtividadeComponent } from './card-atividade/card-atividade.component';
+import { InserirAtividadesComponent } from './inserir-atividades/inserir-atividades.component';
+import { EditarAtividadesComponent } from './editar-atividades/editar-atividades.component';
+import { ExcluirAtividadesComponent } from './excluir-atividades/excluir-atividades.component';
+import { ListarAtividadesComponent } from './listar-atividades/listar-atividades.component';
+import { ListarMedComMaisAtvdPeriodoComponent } from './listar-med-com-mais-atvd-periodo/listar-med-com-mais-atvd-periodo.component';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { AtividadeService } from './services/atividade.service';
-import { InserirAtividadesComponent } from './inserir-atividades/inserir-atividades.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { EditarAtividadesComponent } from './editar-atividades/editar-atividades.component';
-import { ExcluirAtividadesComponent } from './excluir-atividades/excluir-atividades.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatInputModule} from '@angular/material/input';
-import { ListarMedComMaisAtvdPeriodoComponent } from './listar-med-com-mais-atvd-periodo/listar-med-com-mais-atvd-periodo.component';
-import {MatTableModule} from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -35,24 +37,28 @@ import { MatSortModule } from '@angular/material/sort';
   ],
   imports: [
     CommonModule,
-    NgSelectModule,
+    ReactiveFormsModule, 
+    RouterModule,
+    NgbModule,
     AtividadesRoutingModule,  
-    ReactiveFormsModule,  
+    
+    
     MatCardModule,  
     MatButtonModule, 
     MatDividerModule,
-    MatProgressBarModule ,
     MatFormFieldModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule,
     MatTableModule,
-    MatSortModule
+    MatProgressBarModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [
-    AtividadeService
+    AtividadeService,
+    MedicoService,
+    DatePipe,
+    
   ],
 })
 export class AtividadesModule { }
