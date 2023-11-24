@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MedicosModule } from './views/medicos/medicos.module';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
