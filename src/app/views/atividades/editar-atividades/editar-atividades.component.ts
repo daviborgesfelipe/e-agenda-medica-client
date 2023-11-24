@@ -1,13 +1,15 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
 import { MedicoService } from '../../medicos/services/medico.service';
-import { FormsAtividadeViewModel } from '../models/forms-atividade.view-model';
 import { AtividadeService } from '../services/atividade.service';
+import { FormsAtividadeViewModel } from '../models/forms-atividade.view-model';
 import { ListarMedicoViewModel } from '../../medicos/models/listar-medico.vew-model';
-import { map } from 'rxjs';
+import { TipoAtividadeEnum } from '../models/tipoAtividade.enum';
+
+import '../../../extensions/form-group.extension'
 
 @Component({
   selector: 'app-editar-atividades',
@@ -15,6 +17,12 @@ import { map } from 'rxjs';
   styleUrls: ['./editar-atividades.component.scss']
 })
 export class EditarAtividadesComponent implements OnInit{
+  formulario!: FormGroup;
+  atividadeViewModel!: FormsAtividadeViewModel;
+  medicos: ListarMedicoViewModel[] = [];
+  minhaDataControl = new FormControl('2023-11-22');
+
+
   constructor(
     private formBuilder: FormBuilder,
     private atividadeService: AtividadeService,
@@ -23,39 +31,60 @@ export class EditarAtividadesComponent implements OnInit{
     private router: Router,
     private route: ActivatedRoute,
   ){}
-  
+
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
         paciente: new FormControl('', [Validators.required]),
-        data: new FormControl('19/11/2023', [Validators.required,]),
+        data: new FormControl('2023-11-22', [Validators.required]),
         horarioInicio: new FormControl('08:00', [Validators.required]),
         horarioTermino: new FormControl('09:00', [Validators.required]),
         tipoAtividade: new FormControl('', [Validators.required]),
         listaMedicos: new FormControl('', [Validators.required]),
       });
 
-      this.medicoService.selecionarTodos().subscribe((_medicos) => (this.medicos = _medicos));
+      this.atividadeViewModel = this.route.snapshot.data['atividade'];
 
-      this.route.data.pipe(map((dados) => dados['atividade'])).subscribe({
-        next: (atividade) => this.obterAtividade(atividade),
-        error: (erro) => this.processarFalha(erro),
+      console.log("ngOninit", this.atividadeViewModel)
+
+      this.medicoService.selecionarTodos().subscribe((_medicos) => {
+
+        this.medicos = _medicos;
+
+        if(this.atividadeViewModel.tipoAtividade == TipoAtividadeEnum.Cirurgia){
+
+          // Pré-selecione os médicos na listaMedicos do formulário
+          const idsMedicosSelecionados = this.atividadeViewModel.listaMedicos.map((medico) => medico.id);
+
+          this.formulario.patchValue(
+            { 
+              listaMedicos: idsMedicosSelecionados[0] ,
+              data: this.atividadeService.formatStringToData(this.formulario.value.data) ,
+            }
+          );
+
+        }
+
+        if(this.atividadeViewModel.tipoAtividade == TipoAtividadeEnum.Consulta){
+          
+          // Pré-selecione os médicos na listaMedicos do formulário
+          const idsMedicosSelecionados = this.atividadeViewModel.listaMedicos.map((medico) => medico.id);
+          
+          this.formulario.patchValue(
+            { 
+              listaMedicos: idsMedicosSelecionados ,
+              data: this.atividadeService.formatStringToData(this.formulario.value.data) ,
+
+            });
+        }
       });
-    }
 
-    obterAtividade(atividade: FormsAtividadeViewModel) {
-      this.atividadeViewModel = atividade;
-      this.formulario.patchValue(this.atividadeViewModel);
+      this.formulario.patchValue(this.atividadeViewModel!);
     }
-    
-    formulario!: FormGroup;
-    atividadeViewModel!: FormsAtividadeViewModel;
-    medicos: ListarMedicoViewModel[] = [];
     
     campoEstaInvalido(nome: string) {
       const campo = this.formulario?.get(nome);
       return campo ? campo.touched && campo.invalid : false;
     } 
-    
 
     isConsulta(): any {
       return this.formulario.get('tipoAtividade')?.value === 0;
@@ -74,28 +103,19 @@ export class EditarAtividadesComponent implements OnInit{
         return;
       }
       
-      // Convertendo a data para o formato desejado (yyyy/MM/dd)
-      const dataFormatada = formatDate(
-        this.formulario.value.data,
-        'yyyy/MM/dd',
-        'en-US' // Você pode ajustar isso para o seu locale
-      );
-
-      // Criando o objeto a ser enviado
-      this.atividadeViewModel = {
-       ...this.formulario.value,
-       data: dataFormatada,
-      };
+      this.atividadeViewModel.listaMedicos = [];
+      
+      var dataFormatada = this.atividadeService.formatDateToString(this.formulario.value.data)
+      
+      this.atividadeViewModel = { ...this.formulario.value,  data: dataFormatada, };
 
       const id = this.route.snapshot.paramMap.get('id');
 
       if (!id) return;
       
-      console.log(this.atividadeViewModel)
-  
       this.atividadeService.editar(id, this.atividadeViewModel).subscribe(
         {
-          next: (medico: FormsAtividadeViewModel) => this.processarSucesso(medico),
+          next: (atividade: FormsAtividadeViewModel) => this.processarSucesso(atividade),
           error: (erro: Error) => this.processarFalha(erro),
         }
       );
