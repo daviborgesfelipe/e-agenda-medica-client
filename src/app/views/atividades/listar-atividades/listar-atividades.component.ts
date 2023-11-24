@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ListarAtividadeViewModel } from '../models/listar-atividades.view-model';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
+
+import { ListarAtividadeViewModel } from '../models/listar-atividades.view-model';
 
 @Component({
   selector: 'app-listar-atividades',

@@ -1,23 +1,16 @@
-
-
 <div class="col-8 col-sm-8 col-xs-2 col-md-8 col-lg-6 mx-auto mt-5">
-      
   <div class="text-md-start">
     <h1 class="fw-bold">Inserir Atividade</h1>
   </div>
 
-  <form 
-    [formGroup]="formulario!" 
-    (ngSubmit)="gravar()" 
-    class="mt-4">
-
+  <form [formGroup]="formulario!" (ngSubmit)="gravar()" class="mt-4">
     <div class="form-group mb-3 position-relative">
       <mat-label>Paciente:</mat-label>
       <input
         matInput
         formControlName="paciente"
         [ngClass]="campoEstaInvalido('paciente') ? 'is-invalid' : ''"
-        class="form-control"
+        class="form-control text-center"
         type="text"
         placeholder="Digite o nome do Paciente"
       />
@@ -35,70 +28,57 @@
     </div>
 
     <div class="row">
-     <div class="form-group mb-3 position-relative col">
-      <mat-label>Inicio:</mat-label>
-      <input 
-        type="time" 
-        matInput 
-        formControlName="horarioInicio"
-        class="form-control text-center"
-      >
+      <div class="form-group mb-3 position-relative col">
+        <mat-label>Inicio:</mat-label>
+        <input
+          type="time"
+          matInput
+          formControlName="horarioInicio"
+          class="form-control text-center"
+        />
       </div>
 
       <div class="form-group mb-3 position-relative col">
-      <mat-label>Termino:</mat-label>
-      <input 
-        type="time" 
-        matInput 
-        formControlName="horarioTermino"
-        class="form-control text-center"
-        
-      >
-     </div>
+        <mat-label>Termino:</mat-label>
+        <input
+          type="time"
+          matInput
+          formControlName="horarioTermino"
+          class="form-control text-center"
+        />
+      </div>
     </div>
 
     <div class="form-group mb-3 position-relative">
-        <mat-label class="form-label">Tipo Atividade: </mat-label>
-        <mat-select formControlName="tipoAtividade">
-          <mat-option [value]="0">Consulta</mat-option>
-          <mat-option [value]="1">Cirurgia</mat-option>
-        </mat-select>
-      
+      <mat-label class="form-label">Tipo Atividade: </mat-label>
+      <mat-select formControlName="tipoAtividade" class="text-center">
+        <mat-option [value]="0">Consulta</mat-option>
+        <mat-option [value]="1">Cirurgia</mat-option>
+      </mat-select>
     </div>
 
     <div class="form-group mb-3 position-relative">
-      
       <mat-label>Medico(s):</mat-label>
-      
+
       <div *ngIf="isConsulta()">
         <mat-select formControlName="listaMedicos" multiple>
-          <mat-option 
-            *ngFor="let medico of medicos"
-            [value]="medico.id">
-            {{medico.nome}}
+          <mat-option *ngFor="let medico of medicos" [value]="medico.id">
+            {{ medico.nome }}
           </mat-option>
         </mat-select>
       </div>
 
       <div *ngIf="isCirurgia()">
         <mat-select formControlName="listaMedicos">
-          <mat-option 
-            *ngFor="let medico of medicos"
-            [value]="medico.id">
-            {{medico.nome}}
+          <mat-option *ngFor="let medico of medicos" [value]="medico.id">
+            {{ medico.nome }}
           </mat-option>
         </mat-select>
       </div>
-
     </div>
 
     <div class="card-footer g-grid d-flex gap-1 mt-5">
-
-      <button 
-        mat-raised-button
-        color="primary"
-        type="submit" 
-        class="px-5">
+      <button mat-raised-button color="primary" type="submit" class="px-5">
         <i class="bi bi-save me-2"></i>
         Gravar
       </button>
@@ -108,14 +88,11 @@
         color="primary"
         routerLink="/medicos/listar"
         type="button"
-        class="px-5" >
+        class="px-5"
+      >
         <i class="pi pi-arrow-left me-2"></i>
         Voltar
       </button>
     </div>
-
   </form>
-
 </div>
-
-

@@ -1,76 +1,61 @@
+<div class="col-8 col-sm-8 col-xs-2 col-md-8 col-lg-6 mx-auto mt-5">
+  <div class="text-md-start">
+    <h1 class="fw-bold">Editar Medico</h1>
+  </div>
 
-
-    <div class="col-8 col-sm-8 col-xs-2 col-md-8 col-lg-6 mx-auto mt-5">
-      
-      <div class="text-md-start">
-        <h1 class="fw-bold">Editar Medico</h1>
-      </div>
-
-      <form 
-        [formGroup]="formulario!" 
-        (ngSubmit)="gravar()" 
-        class="mt-4">
-
-        <div class="form-group mb-3 position-relative">
-          <mat-label>Título:</mat-label>
-          <input
-            matInput
-            formControlName="nome"
-            [ngClass]="campoEstaInvalido('nome') ? 'is-invalid' : ''"
-            class="form-control"
-            type="text"
-            placeholder="Digite o nome do Medico"
-          />
-        </div>
-
-        <div class="form-group mb-3 position-relative">
-          <mat-label>Especialidade:</mat-label>
-          <input
-            matInput
-            formControlName="especialidade"
-            [ngClass]="campoEstaInvalido('especialidade') ? 'is-invalid' : ''"
-            class="form-control"
-            type="text"
-            placeholder="Digite a Especialidade do Medico"
-          />
-        </div>
-
-        <div class="form-group mb-3 position-relative">
-          <mat-label>CRM:</mat-label>
-          <input
-            matInput
-            formControlName="crm"
-            [ngClass]="campoEstaInvalido('crm') ? 'is-invalid' : ''"
-            class="form-control"
-            type="text"
-            placeholder="Digite o CRM do Medico"
-          />
-        </div>
-
-        <div class="card-footer g-grid d-flex gap-1 mt-5">
-
-          <button 
-            mat-raised-button
-            color="primary"
-            type="submit" 
-            class="px-5">
-            <i class="bi bi-save me-2"></i>
-            Gravar
-          </button>
-
-          <button
-            mat-raised-button
-            color="primary"
-            routerLink="/medicos/listar"
-            type="button"
-            class="px-5" >
-            <i class="pi pi-arrow-left me-2"></i>
-            Voltar
-          </button>
-        </div>
-
-      </form>
-
+  <form [formGroup]="formulario!" (ngSubmit)="gravar()" class="mt-4">
+    <div class="form-group mb-3 position-relative">
+      <mat-label>Título:</mat-label>
+      <input
+        matInput
+        formControlName="nome"
+        [ngClass]="campoEstaInvalido('nome') ? 'is-invalid' : ''"
+        class="form-control text-center"
+        type="text"
+        placeholder="Digite o nome do Medico"
+      />
     </div>
 
+    <div class="form-group mb-3 position-relative">
+      <mat-label>Especialidade:</mat-label>
+      <input
+        matInput
+        formControlName="especialidade"
+        [ngClass]="campoEstaInvalido('especialidade') ? 'is-invalid' : ''"
+        class="form-control text-center"
+        type="text"
+        placeholder="Digite a Especialidade do Medico"
+      />
+    </div>
 
+    <div class="form-group mb-3 position-relative">
+      <mat-label>CRM:</mat-label>
+      <input
+        matInput
+        formControlName="crm"
+        [ngClass]="campoEstaInvalido('crm') ? 'is-invalid' : ''"
+        class="form-control text-center"
+        type="text"
+        placeholder="Digite o CRM do Medico"
+      />
+    </div>
+
+    <div class="card-footer g-grid d-flex gap-1 mt-5">
+      <button mat-raised-button color="primary" type="submit" class="px-5">
+        <i class="bi bi-save me-2"></i>
+        Gravar
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/medicos/listar"
+        type="button"
+        class="px-5"
+      >
+        <i class="pi pi-arrow-left me-2"></i>
+        Voltar
+      </button>
+    </div>
+  </form>
+</div>

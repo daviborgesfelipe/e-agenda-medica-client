@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { InserirMedicoViewModel } from '../../medicos/models/inserir-medico.view-model';
+import { formatDate } from '@angular/common';
+
 import { MedicoService } from '../../medicos/services/medico.service';
 import { AtividadeService } from '../services/atividade.service';
-import { FormsAtividadeViewModel } from '../models/forms-atividade.view-model';
 import { ListarMedicoViewModel } from '../../medicos/models/listar-medico.vew-model';
-import { formatDate } from '@angular/common';
+import { FormsAtividadeViewModel } from '../models/forms-atividade.view-model';
 
 @Component({
   selector: 'app-inserir-atividades',
@@ -26,11 +26,11 @@ export class InserirAtividadesComponent implements OnInit{
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       paciente: new FormControl('', [Validators.required]),
-      data: new FormControl('19/11/2023', [
+      data: new FormControl('2023-12-25', [
         Validators.required,
       ]),
-      horarioInicio: new FormControl('08:00', [Validators.required]),
-      horarioTermino: new FormControl('09:00', [Validators.required]),
+      horarioInicio: new FormControl('04:55', [Validators.required]),
+      horarioTermino: new FormControl('23:45', [Validators.required]),
       tipoAtividade: new FormControl('', [Validators.required]),
       listaMedicos: new FormControl('', [Validators.required]),
     });

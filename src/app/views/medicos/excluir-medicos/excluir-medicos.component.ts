@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicoService } from '../services/medico.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
+import { MedicoService } from '../services/medico.service';
+
 import { VisualizarMedicoViewModel } from '../models/visualizar-medico.view-model';
 import { InserirMedicoViewModel } from '../models/inserir-medico.view-model';
 

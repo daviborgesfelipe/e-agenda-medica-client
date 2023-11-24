@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AtividadeService } from '../services/atividade.service';
-import { ToastrService } from 'ngx-toastr';
-import { MedicoComHoraViewModel } from '../models/listar-medicos-com-hora.view-model';
 import { DatePipe } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
+
+import { MedicoComHoraViewModel } from '../models/listar-medicos-com-hora.view-model';
+import { AtividadeService } from '../services/atividade.service';
 
 @Component({
   selector: 'app-listar-med-com-mais-atvd-periodo',

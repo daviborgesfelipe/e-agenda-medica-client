@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { VisualizarMedicoViewModel } from '../../medicos/models/visualizar-medico.view-model';
+
 import { AtividadeService } from '../services/atividade.service';
 import { FormsAtividadeViewModel } from '../models/forms-atividade.view-model';
 import { VisualizarAtividadeViewModel } from '../models/visualizar-atividades.view-model';

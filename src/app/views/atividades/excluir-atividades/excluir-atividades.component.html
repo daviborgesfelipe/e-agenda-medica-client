@@ -20,13 +20,14 @@
         <dt class="col-md-4">
           <label class="control-label">Tipo Atividade:</label>
         </dt>
-        <dd class="col-md-8">{{ atividade?.tipoAtividade == 0 ? 'Consulta' : 'Cirurgia'  }}</dd>
+        <dd class="col-md-8">
+          {{ atividade?.tipoAtividade == 0 ? "Consulta" : "Cirurgia" }}
+        </dd>
 
         <dt class="col-md-4">
           <label class="control-label">Data:</label>
         </dt>
         <dd class="col-md-8">{{ atividade?.data }}</dd>
-        
       </dl>
 
       <div class="card-footer g-grid d-flex gap-1 mt-5">

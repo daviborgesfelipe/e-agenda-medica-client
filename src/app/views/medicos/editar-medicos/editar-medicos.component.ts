@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { InserirMedicoViewModel } from '../models/inserir-medico.view-model';
+
 import { MedicoService } from '../services/medico.service';
 import { EditarMedicoViewModel } from '../models/editar-medico.view-model';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-editar-medicos',
