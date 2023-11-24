@@ -1,13 +1,14 @@
 import { NgModule, inject } from '@angular/core';
-import { ActivatedRouteSnapshot, ResolveFn, RouterModule, Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, ResolveFn, RouterModule, Routes, } from '@angular/router';
+
+import { MedicoService } from './services/medico.service';
 import { ListarMedicosComponent } from './listar-medicos/listar-medicos.component';
 import { InserirMedicosComponent } from './inserir-medicos/inserir-medicos.component';
-import { ListarMedicoViewModel } from './models/listar-medico.vew-model';
-import { MedicoService } from './services/medico.service';
 import { EditarMedicosComponent } from './editar-medicos/editar-medicos.component';
-import { EditarMedicoViewModel } from './models/editar-medico.view-model';
-import { VisualizarMedicoViewModel } from './models/visualizar-medico.view-model';
 import { ExcluirMedicosComponent } from './excluir-medicos/excluir-medicos.component';
+
+import { ListarMedicoViewModel } from './models/listar-medico.vew-model';
+import { EditarMedicoViewModel } from './models/editar-medico.view-model';
 import { InserirMedicoViewModel } from './models/inserir-medico.view-model';
 
 const listarMedicosResolver: ResolveFn<ListarMedicoViewModel[]> = () => {
@@ -23,9 +24,7 @@ const editarrMedicosResolver: ResolveFn<EditarMedicoViewModel> = (
 const visualizarMedicoResolver: ResolveFn<InserirMedicoViewModel> = (
   route: ActivatedRouteSnapshot
 ) => {
-  return inject(MedicoService).selecionarPorId(
-    route.paramMap.get('id')!
-  );
+  return inject(MedicoService).selecionarPorId(route.paramMap.get('id')!);
 };
 
 const routes: Routes = [
@@ -41,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'inserir',
-    component: InserirMedicosComponent
+    component: InserirMedicosComponent,
   },
   {
     path: 'editar/:id',
@@ -57,6 +56,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MedicosRoutingModule { }
+export class MedicosRoutingModule {}
