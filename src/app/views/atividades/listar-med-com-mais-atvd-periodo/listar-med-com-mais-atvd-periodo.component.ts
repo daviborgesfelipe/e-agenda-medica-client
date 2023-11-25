@@ -40,7 +40,7 @@ export class ListarMedComMaisAtvdPeriodoComponent implements OnInit{
       for (let erro of this.formulario.validate()) {
         this.toastrService.warning(erro);
       }
-
+      
       return;
     }
 

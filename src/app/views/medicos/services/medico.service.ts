@@ -46,7 +46,7 @@ export class MedicoService {
     );
   }
 
-  public selecionarPorId(id: string): Observable<InserirMedicoViewModel> {
+  public selecionarPorId(id: string): Observable<InserirMedicoViewModel | VisualizarMedicoViewModel | EditarMedicoViewModel | ListarMedicoViewModel> {
     return this.http.get<any>(this.endpoint + id).pipe(
       map((res) => res.dados),
       catchError((err: HttpErrorResponse) => this.processarErroHttp(err))

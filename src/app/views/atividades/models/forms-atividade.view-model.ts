@@ -7,5 +7,5 @@ export type FormsAtividadeViewModel = {
   horarioTermino: string;
   horarioInicio: string;
   tipoAtividade: TipoAtividadeEnum;
-  listaMedicos: ListarMedicoViewModel[];
+  listaMedicos: any[];
 }
