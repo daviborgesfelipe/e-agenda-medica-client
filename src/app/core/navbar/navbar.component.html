@@ -8,6 +8,7 @@
       routerLinkActive="fw-semibold"
       routerLink="/dashboard"
       mat-button>e-Agenda Medica
+      <mat-icon>event-note</mat-icon>
     </a>
 
     <div class="col-1 col-sm-4 col-md-5 col-lg-6"></div> 
@@ -28,18 +29,22 @@
   >
 
     <div class="d-flex justify-content-center w-100 px-5">
-          <a color="" mat-button routerLink="/dashboard">
-            Dashboard
-          </a>
-          <a color="" class="px-3" mat-button routerLink="/medicos">
-            Médicos
-          </a>
-          <a color="" class="px-3" mat-button routerLink="/atividades">
-            Atividades
-          </a>
-          <a color="" mat-button routerLink="/atividades/medicos-mais-horas-trabalhadas/">
-            Qtd. Horas p/Periodo
-          </a>
+      <a color="" mat-button routerLink="/dashboard">
+        <span class="toolbar-text">Dashboard</span>
+        <mat-icon>home</mat-icon>
+      </a>
+      <a color="" class="px-3" mat-button routerLink="/medicos">
+        <span class="toolbar-text">Médicos</span>
+        <mat-icon>local_hospital</mat-icon>
+      </a>
+      <a color="" class="px-3" mat-button routerLink="/atividades">
+        <span class="toolbar-text">Atividades</span>
+        <mat-icon>event_available</mat-icon>
+      </a>
+      <a color="" mat-button routerLink="/atividades/medicos-mais-horas-trabalhadas/">
+        <span class="toolbar-text">Qtd. Horas p/Período</span>
+        <mat-icon>table_chart</mat-icon>
+      </a>
     </div>
     
   </mat-toolbar-row>

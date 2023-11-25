@@ -4,7 +4,7 @@
     <div class="col-12 col-md-10 col-lg-10 mx-auto mt-5">
       <!-- Titulo -->
       <div class="text-md-start">
-        <h1 class="fw-bold">Listar Atividade</h1>
+        <h1 class="fw-bold">Lista de Atividade</h1>
         <hr />
       </div>
 
@@ -17,14 +17,14 @@
           role="button"
           class="btn btn-primary me-md-1"
         >
-          <i class="pi pi-plus-circle me-2"></i>
           Nova Atividade
+          <mat-icon>group_add</mat-icon>
         </a>
       </div>
 
       <div class="row mt-3 g-5 justify-content-md-center">
         <div
-          class="col-12 col-md-6 col-lg-5"
+          class="col-12 col-md-6 col-lg-4"
           *ngFor="let atividade of atividades"
         >
           <app-card-atividade [atividade]="atividade"></app-card-atividade>

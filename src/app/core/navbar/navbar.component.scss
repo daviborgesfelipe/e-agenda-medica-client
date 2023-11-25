@@ -1,3 +1,19 @@
-html {
+html, body {
   width: 100%;
+}
+@media (max-width: 768px) {
+  .toolbar-text {
+    display: none;
+  }
+  a {
+    margin-inline: 20px;
+  }
+}
+@media (max-width: 375px) {
+  .toolbar-text {
+    display: none;
+  }
+  a {
+    margin-inline: 8px;
+  }
 }

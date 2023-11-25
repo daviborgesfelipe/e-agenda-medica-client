@@ -23,7 +23,9 @@
               mat-raised-button
               routerLinkActive="fw-semibold"
               routerLink="/medicos/listar"
-              >MÉDICOS
+              class="d-none d-sm-flex align-items-center"
+              ><span class="mx-auto text-light">MÉDICOS</span>
+              <mat-icon>local_hospital</mat-icon>
               </a>
           
               <a 
@@ -31,8 +33,31 @@
               color="primary"
               routerLinkActive="fw-semibold"
               routerLink="/atividades/listar"
-              >ATIVIDADES
+              class="d-none d-sm-flex align-items-center"
+              ><span class="mx-auto text-light">ATIVIDADES</span>
+              <mat-icon>event_available</mat-icon>
               </a> 
+              <div class="d-sm-none fixed-bottom d-flex justify-content-end p-3">
+                <a 
+                  mat-fab 
+                  color="accent" 
+                  routerLink="/medicos/listar"
+                  class="mx-2"
+                  matTooltip="Lista de Medicos"
+                >
+                  <mat-icon>local_hospital</mat-icon>
+                </a>
+                
+                <button 
+                  mat-fab 
+                  color="primary" 
+                  routerLink="/atividades/listar"
+                  class="mx-2"
+                  matTooltip="Lista de Atividades"
+                >
+                  <mat-icon>event_available</mat-icon>
+                </button>
+              </div>
             </mat-card-actions>
           </div>
           <div class="col-12 col-md-5">
