@@ -3,14 +3,16 @@
     <div class="container">
 
       <div class="row">
-        <mat-card-title class="p-0">Paciente: {{ atividade.paciente }}</mat-card-title><div></div>
+        <mat-card-title class="p-0 text-center text-md-start text-lg-start">Paciente: {{ atividade.paciente }}</mat-card-title><div></div>
       </div>
 
       <div class="row pt-2">
-        <mat-card-subtitle class="col-6 p-0">Atividade: {{ atividade.tipoAtividade == 0 ? 'Consulta' : 'Cirurgia' }}</mat-card-subtitle>
-        <mat-card-subtitle class="col-6 p-0">Inicio: {{ atividade.horarioInicio }}</mat-card-subtitle>
-        <mat-card-subtitle class="col-6 p-0">Data: {{ atividade.data}}</mat-card-subtitle>
-        <mat-card-subtitle class="col-6 p-0">Termino: {{ atividade.horarioTermino }}</mat-card-subtitle>
+        <mat-card-subtitle class="col-6 col-lg-7 p-0 text-center text-lg-center">Ativ.: {{ atividade.tipoAtividade == 0 ? 'Consulta' : 'Cirurgia' }}</mat-card-subtitle>
+        <mat-card-subtitle class="col-6 col-lg-5 p-0 text-md-end text-lg-end">Inicio: {{ atividade.horarioInicio }}</mat-card-subtitle>
+      </div>
+      <div class="row pt-2">
+        <mat-card-subtitle class="col-6 col-lg-7 p-0 text-center text-lg-center">Data: {{ atividade.data}}</mat-card-subtitle>
+        <mat-card-subtitle class="col-6 col-lg-5 p-0 text-md-end text-lg-end">Fim: {{ atividade.horarioTermino }}</mat-card-subtitle>
       </div>
 
     </div>
