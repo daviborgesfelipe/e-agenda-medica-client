@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <!-- Conteúdo principal -->
-    <div class="col-12 col-md-10 col-lg-10 mx-auto mt-5">
+    <div class="col-12 col-md-10 col-lg-10 mx-auto mx-0 mt-5">
       <!-- Titulo -->
       <div class="text-md-start">
         <h1 class="fw-bold">Lista de Atividade</h1>
@@ -21,12 +21,12 @@
           <mat-icon>group_add</mat-icon>
         </a>
 
-        <div class="d-sm-none fixed-bottom d-flex justify-content-between p-5 mt-auto" >
+        <div class="d-sm-none fixed-bottom d-flex justify-content-end p-5 mt-auto" >
           <a
             mat-fab
             color="accent"
             [routerLink]="['/atividades/inserir']"
-            class="mx-2 mt-auto"
+            class="me-2 mt-auto"
             matTooltip="Inserir Medicos"
           >
             <mat-icon>event_available</mat-icon>
@@ -37,7 +37,7 @@
 
       <div class="row mt-3 g-5 justify-content-md-center">
         <div
-          class="col-12 col-md-6 col-lg-4"
+          class="col-12 col-md-6 mx-0 col-lg-4"
           *ngFor="let atividade of atividades"
         >
           <app-card-atividade [atividade]="atividade"></app-card-atividade>
