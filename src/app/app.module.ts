@@ -13,6 +13,7 @@ import { MedicosModule } from './views/medicos/medicos.module';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule, DatePipe } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 
     MatCardModule,
     MatButtonModule,
+    MatIconModule,
     NgbModule,
     ToastrModule.forRoot({
       timeOut: 5100,
