@@ -25,6 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon'
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import {MatIconModule} from '@angular/material/icon'
     MatTableModule,
     MatProgressBarModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   providers: [
     AtividadeService,

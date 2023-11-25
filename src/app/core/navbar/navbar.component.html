@@ -7,7 +7,9 @@
       class="col-5 col-sm-4 col-lg-3" 
       routerLinkActive="fw-semibold"
       routerLink="/dashboard"
-      mat-button>e-Agenda Medica
+      mat-button
+      matTooltip="Ir para a Página Inicial."
+      >e-Agenda Medica
       <mat-icon>event-note</mat-icon>
     </a>
 
@@ -17,7 +19,8 @@
       class="col-3 col-sm-2 col-lg-3"
       (click)="estaColapsada = !estaColapsada"
       mat-icon-button class="example-icon" 
-      aria-label="Menu">
+      aria-label="Menu"
+      matTooltip="Interagir com o Menu de Páginas.">
     <mat-icon >menu</mat-icon>
     </button>
       
@@ -29,20 +32,20 @@
   >
 
     <div class="d-flex justify-content-center w-100 px-5">
-      <a color="" mat-button routerLink="/dashboard">
+      <a color="" mat-button routerLink="/dashboard" matTooltip="Ir para a Página Inicial.">
         <span class="toolbar-text">Dashboard</span>
         <mat-icon>home</mat-icon>
       </a>
-      <a color="" class="px-3" mat-button routerLink="/medicos">
+      <a color="" class="px-3" mat-button routerLink="/medicos" matTooltip="Ir para a página de Lista de Médicos.">
         <span class="toolbar-text">Médicos</span>
         <mat-icon>local_hospital</mat-icon>
       </a>
-      <a color="" class="px-3" mat-button routerLink="/atividades">
+      <a color="" class="px-3" mat-button routerLink="/atividades" matTooltip="Ir para a página de Lista de Atividades.">
         <span class="toolbar-text">Atividades</span>
         <mat-icon>event_available</mat-icon>
       </a>
-      <a color="" mat-button routerLink="/atividades/medicos-mais-horas-trabalhadas/">
-        <span class="toolbar-text">Qtd. Horas p/Período</span>
+      <a color="" mat-button routerLink="/atividades/medicos-mais-horas-trabalhadas/" matTooltip="Ir para Lista de Medicos com mais Horas por Periodo">
+        <span class="toolbar-text">Qtd. Horas p/Período</span >
         <mat-icon>table_chart</mat-icon>
       </a>
     </div>

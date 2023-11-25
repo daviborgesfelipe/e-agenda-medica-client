@@ -20,6 +20,7 @@
   </mat-card-header>
   <mat-card-actions align="end">
     <button 
+      matTooltip="Ir para página onde poderá Excluir esta Atividade."
       color="accent"
       mat-button
       routerLink="/atividades/excluir/{{atividade.id}}"
@@ -27,6 +28,7 @@
       <mat-icon>delete_forever</mat-icon>
     </button>
     <button 
+      matTooltip="Ir para página onde poderá Editar esta Atividade."
       color="primary"
       mat-button
       routerLink="/atividades/editar/{{atividade.id}}"

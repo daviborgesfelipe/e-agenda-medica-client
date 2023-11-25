@@ -78,7 +78,12 @@
     </div>
 
     <div class="card-footer g-grid d-flex gap-1 mt-5">
-      <button mat-raised-button color="primary" type="submit" class="px-5">
+      <button 
+        mat-raised-button 
+        color="primary" 
+        type="submit" 
+        class="px-5"
+        matTooltip="Ir para a gravar esta Atividade na Lista de Atividades.">
         Gravar
         <mat-icon>save_alt</mat-icon>
       </button>
@@ -89,6 +94,7 @@
         routerLink="/atividades/listar"
         type="button"
         class="px-5"
+        matTooltip="Ir para a página de Lista de Atividades."
       >
         <mat-icon>keyboard_return</mat-icon>
         Voltar

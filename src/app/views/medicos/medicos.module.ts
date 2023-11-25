@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon'
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {MatIconModule} from '@angular/material/icon'
     MatDividerModule,
     MatProgressBarModule ,
     MatFormFieldModule,
+    MatTooltipModule
   ],
   providers: [
     MedicoService

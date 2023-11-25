@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import { LoadingModule } from './loading/loading.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LoadingModule } from './loading/loading.module';
     MatDividerModule,
     MatIconModule,
     MatToolbarModule,
+    MatTooltipModule,
     MatTabsModule
   ],
   exports: [
