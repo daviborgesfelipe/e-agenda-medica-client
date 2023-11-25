@@ -20,9 +20,7 @@ export class EditarMedicosComponent implements OnInit {
     private toastrService: ToastrService,
     private router: Router,
     private route: ActivatedRoute,
-  ){
-    console.log(this.medico)
-  }
+  ){  }
   
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({

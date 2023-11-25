@@ -1,56 +1,65 @@
 <section class="mt-5">
   <div class="container">
-
     <div class="container">
       <mat-card class="example-card">
-        <div class="row align-items-center gy-3 p-5"> 
+        <div class="row align-items-center gy-3 p-5">
           <div class="col-12 col-md-7">
-
             <mat-card-header>
-              <mat-card-title class="fw-bold fs-3">Painel do Usuário</mat-card-title>
-              <mat-card-subtitle class="fs-4">Seja Bem-Vindo(a)</mat-card-subtitle>
+              <mat-card-title class="fw-bold fs-3"
+                >Painel do Usuário</mat-card-title
+              >
+              <mat-card-subtitle class="fs-4"
+                >Seja Bem-Vindo(a)</mat-card-subtitle
+              >
             </mat-card-header>
             <mat-card-content class="fs-5">
               <p class="mt-4 my-theme">
-                O <span class="fw-semibold">e-Agenda Médica</span> busca agilizar o gerenciamento de mantem e organizado o cronograma de atividades dentro da clínica.
+                O <span class="fw-semibold">e-Agenda Médica</span> busca
+                agilizar o gerenciamento de mantem e organizado o cronograma de
+                atividades dentro da clínica.
               </p>
-              <p color="primary" class="fw-semibold"><span>O que você deseja gerenciar?</span></p>
+              <p color="primary" class="fw-semibold">
+                <span>O que você deseja gerenciar?</span>
+              </p>
             </mat-card-content>
 
             <mat-card-actions class="d-grid d-md-flex gap-2 pt-5">
-              <a 
-              color="accent"
-              mat-raised-button
-              routerLinkActive="fw-semibold"
-              routerLink="/medicos/listar"
-              class="d-none d-sm-flex align-items-center"
-              ><span class="mx-auto text-light">MÉDICOS</span>
-              <mat-icon>local_hospital</mat-icon>
+              <a
+                color="accent"
+                mat-raised-button
+                routerLinkActive="fw-semibold"
+                routerLink="/medicos/listar"
+                class="d-none d-sm-flex align-items-center"
+                ><span class="mx-auto text-light">MÉDICOS</span>
+                <mat-icon>local_hospital</mat-icon>
               </a>
-          
-              <a 
-              mat-raised-button
-              color="primary"
-              routerLinkActive="fw-semibold"
-              routerLink="/atividades/listar"
-              class="d-none d-sm-flex align-items-center"
-              ><span class="mx-auto text-light">ATIVIDADES</span>
-              <mat-icon>event_available</mat-icon>
-              </a> 
-              <div class="d-sm-none fixed-bottom d-flex justify-content-end p-3">
-                <a 
-                  mat-fab 
-                  color="accent" 
+
+              <a
+                mat-raised-button
+                color="primary"
+                routerLinkActive="fw-semibold"
+                routerLink="/atividades/listar"
+                class="d-none d-sm-flex align-items-center"
+                ><span class="mx-auto text-light">ATIVIDADES</span>
+                <mat-icon>event_available</mat-icon>
+              </a>
+              
+              <div
+                class="d-sm-none fixed-bottom d-flex justify-content-end p-3"
+              >
+                <a
+                  mat-fab
+                  color="accent"
                   routerLink="/medicos/listar"
                   class="mx-2"
                   matTooltip="Lista de Medicos"
                 >
                   <mat-icon>local_hospital</mat-icon>
                 </a>
-                
-                <button 
-                  mat-fab 
-                  color="primary" 
+
+                <button
+                  mat-fab
+                  color="primary"
                   routerLink="/atividades/listar"
                   class="mx-2"
                   matTooltip="Lista de Atividades"
@@ -59,19 +68,22 @@
                 </button>
               </div>
             </mat-card-actions>
-          </div>
-          <div class="col-12 col-md-5">
 
+          </div>
+
+          <div class="col-12 col-md-5">
             <mat-card-content>
-             <img mat-card-image src="/assets/dashboard.png" alt="Foto de duas pessoas, e um celular gigante com informações" class="img-fluid">
+              <img
+                mat-card-image
+                src="/assets/dashboard.png"
+                alt="Foto de duas pessoas, e um celular gigante com informações"
+                class="img-fluid"
+              />
             </mat-card-content>
           </div>
-          
 
         </div>
-    </mat-card>
-  </div>
-  
-
+      </mat-card>
+    </div>
   </div>
 </section>

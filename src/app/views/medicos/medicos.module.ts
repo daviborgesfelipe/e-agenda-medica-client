@@ -34,7 +34,7 @@ import {MatIconModule} from '@angular/material/icon'
     MatButtonModule, 
     MatDividerModule,
     MatProgressBarModule ,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
   providers: [
     MedicoService

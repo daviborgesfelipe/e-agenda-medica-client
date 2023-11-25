@@ -4,7 +4,7 @@
     <div class="col-12 col-md-10 col-lg-10 mx-auto mt-5">
       <!-- Titulo -->
       <div class="text-md-start">
-        <h1 class="fw-bold">Listar Medicos</h1>
+        <h1 class="fw-bold">Lista de Medicos</h1>
         <hr />
       </div>
 
@@ -15,12 +15,23 @@
           color="primary"
           [routerLink]="['/medicos/inserir']"
           role="button"
-          class="btn btn-primary me-md-1"
+          class="btn btn-primary me-md-1 d-none d-sm-flex align-items-center"
         >
-          <i class="pi pi-plus-circle me-2"></i>
-          Novo Medico
-          <mat-icon>group_add</mat-icon>
+        <span class="mx-auto text-light">MEDICOS</span>
+          <mat-icon>local_hospital</mat-icon>
         </a>
+
+        <div class="d-sm-none fixed-bottom d-flex justify-content-between p-5 mt-auto" >
+          <a
+            mat-fab
+            color="accent"
+            [routerLink]="['/atividades/inserir']"
+            class="mx-2 mt-auto"
+            matTooltip="Inserir Medicos"
+          >
+            <mat-icon>local_hospital</mat-icon>
+          </a>
+        </div>
       </div>
 
       <div class="row mt-3 g-5 justify-content-md-center">

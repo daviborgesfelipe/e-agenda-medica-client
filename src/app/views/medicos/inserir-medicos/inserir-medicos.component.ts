@@ -14,11 +14,12 @@ import '../../../extensions/form-group.extension';
   styleUrls: ['./inserir-medicos.component.scss'],
 })
 export class InserirMedicosComponent implements OnInit {
+
   constructor(
     private formBuilder: FormBuilder,
     private medicoService: MedicoService,
     private toastrService: ToastrService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
