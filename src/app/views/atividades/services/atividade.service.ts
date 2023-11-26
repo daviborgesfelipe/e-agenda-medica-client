@@ -29,7 +29,6 @@ export class AtividadeService {
   }
 
   public editar(id: string, medico: FormsAtividadeViewModel) {
-    console.log("public editar", medico)
     return this.http
       .put<any>(this.endpoint + id, medico)
       .pipe(
