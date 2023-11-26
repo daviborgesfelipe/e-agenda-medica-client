@@ -5,7 +5,7 @@
       <!-- Titulo -->
       <div class="text-md-start">
         <div class="text-md-start">
-          <h1 class="fw-bold text-primary">Excluir Atividades</h1>
+          <h1 class="fw-bold">Excluir Atividades</h1>
           <hr />
         </div>
 
@@ -25,22 +25,35 @@
         </dd>
 
         <dt class="col-md-4">
+          <label class="control-label">Paciente:</label>
+        </dt>
+        <dd class="col-md-8">{{ atividade?.paciente }}</dd>
+
+        <dt class="col-md-4">
           <label class="control-label">Data:</label>
         </dt>
         <dd class="col-md-8">{{ atividade?.data }}</dd>
+
       </dl>
 
       <div class="card-footer g-grid d-flex gap-1 mt-5">
-        <button (click)="gravar()" type="button" class="btn btn-danger px-5">
-          <i class="bi bi-trash-fill me-2"></i>
+        <button 
+          mat-raised-button
+          color="accent" 
+          (click)="gravar()" 
+          type="button" 
+          class="btn btn-danger px-5">
+          <mat-icon>delete_forever</mat-icon>
           Excluir
         </button>
         <button
+          mat-raised-button
+          color="primary"
           routerLink="/atividades/listar"
           type="button"
           class="btn btn-outline-primary px-5"
         >
-          <i class="bi bi-arrow-return-left me-2"></i>
+          <mat-icon>keyboard_return</mat-icon>
           Voltar
         </button>
       </div>
