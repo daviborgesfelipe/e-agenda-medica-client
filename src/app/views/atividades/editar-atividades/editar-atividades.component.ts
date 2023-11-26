@@ -76,44 +76,45 @@ export class EditarAtividadesComponent implements OnInit {
     this.formulario.patchValue(this.atividadeViewModel!);
   }
 
-  campoEstaInvalido(nome: string) {
-    const campo = this.formulario?.get(nome);
-    return campo ? campo.touched && campo.invalid : false;
-  }
-
-  isConsulta(): any {
-    return this.formulario.get('tipoAtividade')?.value === 0;
-  }
-
-  isCirurgia(): any {
-    return this.formulario.get('tipoAtividade')?.value === 1;
-  }
-
   gravar() {
 
     if (this.formulario.invalid) {
       for (let erro of this.formulario.validate()) {
         this.toastrService.warning(erro); 
       }
-
       return;
     }
 
     this.atividadeViewModel.listaMedicos = [];
 
-    var dataFormatada = this.atividadeService.formatDateToString( this.formulario.value.data );
+    this.formatarData();
 
-    this.atividadeViewModel = { ...this.formulario.value, data: dataFormatada };
+    switch (this.formulario.value.tipoAtividade) {
+      case TipoAtividadeEnum.Consulta:
+        this.gravarConsulta();
+        break;
 
+      case TipoAtividadeEnum.Cirurgia:
+        this.gravarCirurgia();
+        break;
+
+      default:
+        break;
+    }
+
+  }
+
+
+  gravarCirurgia() {
     const id = this.route.snapshot.paramMap.get('id');
 
     if (!id) return;
 
     if (this.atividadeViewModel.tipoAtividade == TipoAtividadeEnum.Cirurgia) {
 
-      var novoMedico = new Array( this.atividadeViewModel.listaMedicos.toString() );
+      var novoMedico = new Array(this.atividadeViewModel.listaMedicos.toString());
 
-      this.listaIdsMedicos = novoMedico
+      this.listaIdsMedicos = novoMedico;
 
       this.atividadeViewModel.listaMedicos = this.listaIdsMedicos;
 
@@ -122,9 +123,15 @@ export class EditarAtividadesComponent implements OnInit {
         error: (erro: Error) => this.processarFalha(erro),
       });
 
-    } 
+    }
+  }
 
-    if(this.atividadeViewModel.tipoAtividade == TipoAtividadeEnum.Consulta) {
+  gravarConsulta() {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (!id) return;
+
+    if (this.atividadeViewModel.tipoAtividade == TipoAtividadeEnum.Consulta) {
 
       this.atividadeService.editar(id, this.atividadeViewModel).subscribe({
         next: (atividade: FormsAtividadeViewModel) => this.processarSucesso(atividade),
@@ -145,5 +152,24 @@ export class EditarAtividadesComponent implements OnInit {
 
   processarFalha(erro: Error) {
     this.toastrService.error(erro.message, 'Error');
+  }
+
+  formatarData() {
+    var dataFormatada = this.atividadeService.formatDateToString(this.formulario.value.data);
+
+    this.atividadeViewModel = { ...this.formulario.value, data: dataFormatada };
+  }
+
+  campoEstaInvalido(nome: string) {
+    const campo = this.formulario?.get(nome);
+    return campo ? campo.touched && campo.invalid : false;
+  }
+
+  isConsulta(): any {
+    return this.formulario.get('tipoAtividade')?.value === 0;
+  }
+
+  isCirurgia(): any {
+    return this.formulario.get('tipoAtividade')?.value === 1;
   }
 }
